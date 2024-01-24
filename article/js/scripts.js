@@ -5,7 +5,22 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
-$.each($('.ct.gx-4.gx-lg-5.align-items-start.my-5.pb-5').children(), function( index, value ) {
-    if(index<3)
-        $(value).addClass("col-md-4");
+
+const elements = document.getElementsByClassName("working_hours");
+const todayHours = document.getElementsByClassName("today_hours");
+
+let day = new Date().getDay();
+console.log('date ',elements)
+if(day === 0)
+    day = 6
+else
+    day = day -1
+if(elements.length>day){
+    todayHours[0].innerHTML = elements[day].innerHTML
+}
+
+var dropDown = document.querySelector(".dropbtn");
+var dropDownDiv = document.querySelector(".dropdown-content");
+dropDown.addEventListener("click", function(){
+    dropDownDiv.classList.toggle('is-mobile');
 });
